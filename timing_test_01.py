@@ -12,6 +12,10 @@ def main():
   
   #set start time
   starttime = time.time()
+  #-----------Should try with time.clock() on Windows, or time.time() for Linux.
+  #-----------Following link is for timeit, but references the time module differences as well
+  #-----------http://docs.python.org/library/timeit.html#timeit.default_timer
+  
   
   #run repeater recursive fn to test (997 is the max for my machine, for whatever reason)-MD
   repeater(x)
