@@ -9,8 +9,7 @@ while(line != ''):
         line = raw_input('enter line\n')
 	
 	#if reached EOF marker
-        if(line == ''):
-                break
+        if(not line): break
 
 	# fancy list comprehension.  Allows spaces and ; at the end of a line
         arr.append([float(x) for x in line.split(';') if x != ''])
