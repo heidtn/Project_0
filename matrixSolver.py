@@ -6,26 +6,25 @@ arr = []
 
 while(line != ''):
 	#gets input
-        line = raw_input('enter line\n')
-	
+	try:
+        	line = raw_input()
+	except EOFError:
+		break
+		
 	#if reached EOF marker
-        if(not line): break
-
+        if not line: break
+	line = line.strip()
+	
 	# fancy list comprehension.  Allows spaces and ; at the end of a line
-        arr.append([float(x) for x in line.split(';') if x != ''])
-
+	arr.append([float(x) for x in line.split(';') if x != ''])
 
 # automagically splits the whole array into A and b
 A, b =  hsplit(array(arr), [len(arr[0]) - 1])
 
 
 # temporary debug lines
-print A
-print '\n\n'
-print b
-print '\n\n'
-
 x = dot(linalg.pinv(A), b)
-print x
+for i in x:
+	print str(i).format("%6.3e")
 
 
