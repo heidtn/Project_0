@@ -16,15 +16,21 @@ while(line != ''):
 	line = line.strip()
 	
 	# fancy list comprehension.  Allows spaces and ; at the end of a line
-	arr.append([float(x) for x in line.split(';') if x != ''])
+	try:
+		arr.append([float(x) for x in line.split(';') if x != ''])
+	except InputFormatError:
+		print "Invalid input cannot be parsed"
 
 # automagically splits the whole array into A and b
 A, b =  hsplit(array(arr), [len(arr[0]) - 1])
 
 
-# temporary debug lines
+# temporary debug lines 
 x = dot(linalg.pinv(A), b)
 for i in x:
 	print str(i).format("%6.3e")
 
-
+class InputFormatError(IOException)
+	def __init__ (self, expr, msg):
+		self.expr = expr
+		self.msg = msg
