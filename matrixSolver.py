@@ -30,7 +30,7 @@ x = dot(linalg.pinv(A), b)
 for i in x:
 	print str(i).format("%6.3e")
 
-class InputFormatError(IOException)
+class InputFormatError(Exception)
 	def __init__ (self, expr, msg):
 		self.expr = expr
 		self.msg = msg
