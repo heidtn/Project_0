@@ -1,5 +1,12 @@
 from numpy import *
 import re
+class IOException(ValueError):
+	pass
+class InputFormatError(IOException):
+	def __init__ (self, expr, msg):
+		self.expr = expr
+		self.msg = msg
+		print "Input Format Error, Bad input"
 
 line = '0'
 arr = []
@@ -30,7 +37,3 @@ x = dot(linalg.pinv(A), b)
 for i in x:
 	print str(i).format("%6.3e")
 
-#class InputFormatError(Exception)
-#	def __init__ (self, expr, msg):
-#		self.expr = expr
-#		self.msg = msg
