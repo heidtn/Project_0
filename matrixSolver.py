@@ -1,6 +1,6 @@
 from numpy import *
 import re
-class IOException(ValueError):
+class IOException(Exception):
 	pass
 class InputFormatError(IOException):
 	def __init__ (self, expr, msg):
