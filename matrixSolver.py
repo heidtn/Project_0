@@ -34,4 +34,4 @@ A, b =  hsplit(array(arr), [len(arr[0]) - 1])
 # temporary debug lines
 x = dot(linalg.pinv(A), b)
 for i in x:
-        print str(i).format("%6.3e")
+        print("%6.3e" % i[0])
