@@ -5,6 +5,7 @@ class IOException(Exception):
 class InputFormatError(IOException):
         def __init__ (self, line, str):
                 print "Input Format Error, Bad input"
+		print str
 
 line = '0'
 arr = []
@@ -30,8 +31,10 @@ while(line != ''):
 # automagically splits the whole array into A and b
 A, b =  hsplit(array(arr), [len(arr[0]) - 1])
 
+try:
+	x = dot(linalg.pinv(A), b)
+except Exception:
+	raise InputFormatError(A, "improperly sized array")	
 
-# temporary debug lines
-x = dot(linalg.pinv(A), b)
 for i in x:
         print("%6.3e" % i[0])
